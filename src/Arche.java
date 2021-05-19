@@ -2,10 +2,15 @@
 public class Arche {
 
     int tabAnimal[] = new int[8];
+    private Animal[] animal;
 
-    public static void ajouter(Animal animal){
-        Arche.ajouter(Arche, animal);
+    public void ajouter(Animal animal){
+        for (int i = 0; i < this.animal.length; i++) {
+            if (this.animal[i] == null){
+                this.animal[i] = animal;
+                break;
+            }
+        }
     }
-
 
 }

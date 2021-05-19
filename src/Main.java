@@ -32,8 +32,9 @@ public class Main {
         if (saisie == "o"){
             System.out.println();
         } else {
-            System.out.println("Pret à partir !");
+            scan.nextLine();
         }
-        scan.nextInt();
+        System.out.println("Pret à partir !");
+
     }
 }
