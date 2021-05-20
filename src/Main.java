@@ -8,6 +8,10 @@ import java.util.Scanner;
  */
 
 public class Main {
+
+    private static final String ERREUR = "Erreur de saisie !";
+    private static final String BIENVENUE = "Bienvenue, j'aurai besoin de renseignements sur l'animal avant d'entrer :";
+
     public static void main(String[] args) {
 
 
@@ -20,7 +24,7 @@ public class Main {
 // boucle do pour permettre d'ajouter un autre animal dans l'arche
         char saisie = 0;
         do {
-            System.out.println("Bienvenue, j'aurai besoin de renseignements sur l'animal avant d'entrer :");
+            System.out.println(BIENVENUE);
             System.out.println("Quel est son nom?");
             String nom = scan.nextLine();
 
@@ -38,7 +42,7 @@ public class Main {
                         System.out.println(nom + " est feminin");
                         break;
                     default:
-                        System.out.println("Erreur de saisie !");
+                        System.out.println(ERREUR);
                         break;
                 }
             } while (sexe > 1);
@@ -51,38 +55,57 @@ public class Main {
                 scan.nextLine();
                 switch (espece) {
                     case 0:
-                        System.out.println(nom + " est un chat so cute");
-                        // nom sexe
-                        arche.ajouter(new Chat(nom, sexe));  //je fais le lien avec la class Arche.
-                        break;                                  //Et je créer un chat car je sais son nom, sexe et espece.
+                        if (Chat.getNbDeChats() < 2) {
+                            System.out.println(nom + " est un chat so cute");
+                            arche.ajouter(new Chat(nom, sexe));             //je fais le lien avec la class Arche.
+                            System.out.println("L'animal " + nom + " est dans l'arche.");
+                        } else {                                            //Et je créer un chat car je sais son nom, sexe et espece.
+                            System.out.println("J'ai déjà deux chats, désolé. Attend la prochaine arche.");
+                        }
+                        break;
                     case 1:
-                        System.out.println(nom + " est un adorable chien");
-                        arche.ajouter(new Chien(nom, sexe));
-                        new Chien(nom, sexe);
+                        if (Chien.getNbDeChiens() < 2){
+                            System.out.println(nom + " est un adorable chien");
+                            arche.ajouter(new Chien(nom, sexe));
+                            System.out.println("L'animal " + nom + " est dans l'arche.");
+                        } else{
+                            System.out.println("J'ai déjà deux chiens, désolé. Attend la prochaine arche.");
+                        }
                         break;
                     case 2:
-                        System.out.println(nom + " est un gorille badass");
-                        arche.ajouter(new Gorille(nom, sexe));
+                        if (Gorille.getNbDeGorilles() < 2) {
+                            System.out.println(nom + " est un gorille badass");
+                            arche.ajouter(new Gorille(nom, sexe));
+                            System.out.println("L'animal " + nom + " est dans l'arche.");
+                        }else{
+                            System.out.println("J'ai déjà deux gorilles, désolé. Attend la prochaine arche.");
+                        }
                         break;
                     case 3:
-                        System.out.println(nom + " est un lapin tout mignon");
-                        arche.ajouter(new Lapin(nom, sexe));
+                        if (Lapin.getNbDeLapins() < 2) {
+                            System.out.println(nom + " est un lapin tout mignon");
+                            arche.ajouter(new Lapin(nom, sexe));
+                            System.out.println("L'animal " + nom + " est dans l'arche.");
+                        }else{
+                            System.out.println("J'ai déjà deux lapins, désolé. Attend la prochaine arche.");
+                        }
                         break;
                     default:
-                        System.out.println("Erreur de saisie");
+                        System.out.println(ERREUR);
                         break;
                 }
             } while (espece > 3);
 
-            System.out.println("L'animal " + nom + " est dans l'arche.");
+
 
 // fin de la boucle do initialisé au debut
-            System.out.println("Un autre animal à ajouter? o pour oui, n pour non.");
+            System.out.println("Un autre animal à ajouter? o pour oui, n'importe quelle touche pour non.");
             saisie = scan.nextLine().charAt(0);
         } while (saisie == 'o' || saisie == 'O');
 
-        System.out.println("Pret à partir !");
-
+        System.out.println("L'arche va partir !");
+        System.out.println("L'arche possède à son bord : " + Chat.getNbDeChats() + " chats, " + Chien.getNbDeChiens()
+        + " chiens, " + Gorille.getNbDeGorilles() + " gorilles, " + Lapin.getNbDeLapins() + " lapins");
     }
 }
 

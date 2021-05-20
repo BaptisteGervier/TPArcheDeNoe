@@ -1,14 +1,14 @@
 
 public class Arche {
 
-    int tabAnimal[] = new int[8];
-    private Animal[] animal;
+
+    private Animal[] animaux = new Animal[8];
 
     // le fori permet d'ajouter un animal
     public void ajouter(Animal animal){
-        for (int i = 0; i < this.animal.length; i++) {
-            if (this.animal[i] == null){
-                this.animal[i] = animal;
+        for (int i = 0; i < this.animaux.length; i++) {
+            if (this.animaux[i] == null){
+                this.animaux[i] = animal;
                 break;
             }
         }
