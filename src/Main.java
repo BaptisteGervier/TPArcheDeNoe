@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String oui = "o";
-        String non = "n";
 
         Chat garfield = new Chat("Garfield", "M");
         Chat arizona = new Chat("Arizona", "F");
@@ -15,26 +13,41 @@ public class Main {
         Lapin lola = new Lapin("Lola", "F");
 
         Scanner scan = new Scanner(System.in);
+        char saisie = 0;
+        do {
 
-        System.out.println("Quel est ton nom?");
-        String nom = scan.nextLine();
+            System.out.println("Quel est son nom?");
+            String nom = scan.nextLine();
 
-        System.out.println("Quel est ton sexe? 0 pour masculin et 1 pour feminin");
+        System.out.println("Quel est son sexe? 0 pour masculin et 1 pour feminin");
         int sexe = scan.nextInt();
+        scan.nextLine();
+        do {
+            switch (sexe) {
+                case 0:
+                    System.out.println("L'animal est masculin");
+                    break;
+                case 1:
+                    System.out.println("L'animal est feminin");
+                    break;
+                default:
+                    System.out.println("Erreur de saisie !");
+                    break;
+            }
+        } while (sexe != 0 || sexe != 1);
 
-        System.out.println("Quel est ton espèce? 0 pour chat, 1 pour chien, 2 pour gorille et 3 pour lapin");
+        System.out.println("Quel est son espèce? 0 pour chat, 1 pour chien, 2 pour gorille et 3 pour lapin");
         int espece = scan.nextInt();
+        scan.nextLine();
 
-        System.out.println("L'animal " + nom + " est dans l'arche.");
+            System.out.println("L'animal " + nom + " est dans l'arche.");
 
-        System.out.println("Un autre animal à ajouter? o pour oui, n pour non.");
-        String saisie = scan.nextLine();
-        if (saisie == "o"){
-            System.out.println();
-        } else {
-            scan.nextLine();
-        }
-        System.out.println("Pret à partir !");
+            System.out.println("Un autre animal à ajouter? o pour oui, n pour non.");
+                saisie = scan.nextLine().charAt(0);
+            } while (saisie == 'o' || saisie == 'O');
+
+            System.out.println("Pret à partir !");
 
     }
 }
+
