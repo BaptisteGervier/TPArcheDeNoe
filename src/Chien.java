@@ -1,8 +1,8 @@
 public class Chien extends Animal{
     private String nom;
-    private String sexe;
+    private int sexe;
 
-    public Chien(String nom, String sexe) {
+    public Chien(String nom, int sexe) {
         this.nom = nom;
         this.sexe = sexe;
     }

@@ -1,8 +1,8 @@
 public class Chat extends Animal{
     private String nom;
-    private String sexe;
+    private int sexe;
 
-    public Chat(String nom, String sexe) {
+    public Chat(String nom, int sexe) {
         this.nom = nom;
         this.sexe = sexe;
     }
