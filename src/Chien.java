@@ -12,4 +12,8 @@ public class Chien extends Animal{
     public static int getNbDeChiens() {
         return nbDeChiens;
     }
+
+    public int getSexe() {
+        return sexe;
+    }
 }

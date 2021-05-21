@@ -13,5 +13,7 @@ public class Chat extends Animal{
         return nbDeChats;
     }
 
-
+    public int getSexe() {
+        return sexe;
+    }
 }

@@ -12,4 +12,8 @@ public class Lapin extends Animal{
     public static int getNbDeLapins() {
         return nbDeLapins;
     }
+
+    public int getSexe() {
+        return sexe;
+    }
 }

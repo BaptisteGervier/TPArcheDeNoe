@@ -12,4 +12,8 @@ public class Gorille extends Animal{
     public static int getNbDeGorilles() {
         return nbDeGorilles;
     }
+
+    public int getSexe() {
+        return sexe;
+    }
 }
